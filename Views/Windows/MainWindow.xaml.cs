@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFPlayer.ViewModels;
 
 namespace WPFPlayer
 {
@@ -20,6 +21,8 @@ namespace WPFPlayer
         public MainWindow()
         {
             InitializeComponent();
+            var vm = new MainWindowViewModel(this);
+            DataContext = vm;
         }
     }
 }

@@ -10,6 +10,5 @@ namespace WPFPlayer.Interface
     {
         string OpenMediaFile();
         string FilterString(string input);
-
     }
 }

@@ -3,10 +3,70 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPFPlayer"
+        xmlns:vm="clr-namespace:WPFPlayer.ViewModels"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:control="clr-namespace:WPFPlayer.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="MainWindow" Height="450" Width="800" Opacity="1" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid Background="Transparent">
+        <Border Background="Black">
+            <Viewbox>
+                <control:WPFPlayer x:Name="mediaElement" Stretch="UniformToFill"/>
+            </Viewbox>
+        </Border>
+        <Grid>
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter Property="Opacity" Value="0"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <Menu VerticalAlignment="Top" Background="Red">
+                <MenuItem Header="Файл">
+                    <MenuItem Header="Открыть файл"/>
+                    <MenuItem Header="Выход"/>
+                </MenuItem>
+                <MenuItem Header="Вид">
+                    <MenuItem/>
+                </MenuItem>
+                <MenuItem Header="Воспроизведение">
+                    <MenuItem/>
+                </MenuItem>
+                <MenuItem Header="Навигация">
+                    <MenuItem/>
+                </MenuItem>
+                <MenuItem Header="Закладки">
+                    <MenuItem/>
+                </MenuItem>
+                <MenuItem Header="Помощь">
+                    <MenuItem/>
+                </MenuItem>
+            </Menu>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,1,5,0" Width="45">
+                <Button>
+                    
+                </Button>
+                <Button>
+                    
+                </Button>
+                <Button>
+                    
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="LayoutRoot" VerticalAlignment="Bottom" Background="PaleVioletRed" Height="65" >
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter Property="Opacity" Value="10"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
     </Grid>
 </Window>

@@ -1,19 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Threading;
-using WPFPlayer.ViewModels.Base;
-using WPFPlayer.Controls;
+using WPFPlayer.Infrastructure.Commands;
 
 namespace WPFPlayer.ViewModels
 {
-    internal class MainWindowViewModel : ViewModel
+    class MainWindowViewModel : ViewModel
     {
-        public MainWindowViewModel()
+        private MainWindow _window { get; }
+        public MainWindowViewModel(MainWindow window)
         {
-
+            _window = window;
         }
+
     }
 }

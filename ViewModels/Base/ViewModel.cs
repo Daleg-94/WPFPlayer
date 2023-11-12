@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WPFPlayer.ViewModels.Base
+namespace WPFPlayer.ViewModels
 {
     internal class ViewModel : INotifyPropertyChanged, IDisposable
     {
