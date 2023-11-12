@@ -8,15 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Commands\Base\" />
-    <Folder Include="Interface\" />
-    <Folder Include="ViewModels\Base\" />
-    <Folder Include="ViewModels\" />
     <Folder Include="Utils\" />
     <Folder Include="Models\" />
     <Folder Include="Converter\" />
-    <Folder Include="Controls\" />
-    <Folder Include="Views\Windows\" />
   </ItemGroup>
 
 </Project>
