@@ -22,7 +22,7 @@ namespace WPFPlayer.Utils
 
         public string FilterString(string input)
         {
-            string pattern = @".*\\(.*)(\\[^\\]+)$";
+            string pattern = @".*\\([^\\]+)\.\w+$";
 
             Match match = Regex.Match(input, pattern);
 

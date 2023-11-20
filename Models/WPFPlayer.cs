@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 
@@ -12,20 +13,24 @@ namespace WPFPlayer.Controls
 {
     internal class WPFPlayer : MediaElement
     {
-        private readonly DispatcherTimer timer;
-        private readonly Slider positionSlider;
-        public string TimeText { get; set; }
+        internal DispatcherTimer Timer { get; set; }
+        internal string TimeText { get; set; }
         private bool IsPlaying { get; set; }
-        private DateTime LastClickTime { get; set; }
-        private DateTime MouseDownTime { get; set; }
+        internal DateTime LastClickTime { get; set; }
+        internal DateTime MouseDownTime { get; set; }
+        internal TimeSpan MouseUpTime { get; set; }
+
 
         public WPFPlayer()
         {
             IsPlaying = false;
-            timer = new DispatcherTimer();
+            Timer = new DispatcherTimer();
             TimeText = string.Empty;
             LastClickTime = DateTime.Now;
-            positionSlider = new Slider();
+            Timer.Interval = TimeSpan.FromSeconds(0.1);
+
+            LoadedBehavior = MediaState.Manual;
+            UnloadedBehavior = MediaState.Manual;
         }
 
         internal void TogglePlayPause()
@@ -34,52 +39,49 @@ namespace WPFPlayer.Controls
             if (IsPlaying)
             {
                 Play();
-                timer.Start();
+                Timer.Start();
             }
             else
             {
                 Pause();
-                timer.Stop();
+                Timer.Stop();
             }
         }
 
-        public void UpdatePosition()
+        internal void PlayClick()
         {
-            TimeSpan newPositionTimeSpan = TimeSpan.FromSeconds(0);
-            Position = newPositionTimeSpan;
-            positionSlider.Value = 0;
-            Play();
-            timer.Start();
+            if (!IsPlaying)
+            {
+                TogglePlayPause();
+            }
+            Timer.Start();
         }
 
-        private void PlayButton_Click()
+        internal void PauseClick()
         {
-            TogglePlayPause();
-            timer.Start();
+            if (IsPlaying)
+            {
+                TogglePlayPause();
+            }
+            Timer.Stop();
         }
 
-        private void PauseButton_Click()
-        {
-            TogglePlayPause();
-            timer.Stop();
-        }
-
-        private void StopButton_Click()
+        internal void StopClick()
         {
             Stop();
-            timer.Stop();
+            Timer.Stop();
         }
-        private void SpeedLow_Click()
+        internal void SpeedLowClick()
         {
             if (SpeedRatio > 0.25)
             {
                 TogglePlayPause();
-                SpeedRatio -= 0.5;
+                SpeedRatio -= 0.25;
                 Task.Delay(100);
                 TogglePlayPause();
             }
         }
-        private void SpeedHigh_Click()
+        internal void SpeedHighClick()
         {
             if (SpeedRatio < 2)
             {

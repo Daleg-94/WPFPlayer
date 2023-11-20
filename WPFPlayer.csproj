@@ -8,8 +8,44 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <None Remove="Resources\Images\close.png" />
+    <None Remove="Resources\Images\Close2.png" />
+    <None Remove="Resources\Images\full-screen_4997108.png" />
+    <None Remove="Resources\Images\maximize.png" />
+    <None Remove="Resources\Images\Maximize2.png" />
+    <None Remove="Resources\Images\maximize_10264178.png" />
+    <None Remove="Resources\Images\minimize.png" />
+    <None Remove="Resources\Images\Minimize2.png" />
+    <None Remove="Resources\Images\Minus.png" />
+    <None Remove="Resources\Images\Next.png" />
+    <None Remove="Resources\Images\pause.png" />
+    <None Remove="Resources\Images\Pause2.png" />
+    <None Remove="Resources\Images\pause_5251071.png" />
+    <None Remove="Resources\Images\play_8466842.png" />
+    <None Remove="Resources\Images\play_8637931.png" />
+    <None Remove="Resources\Images\Previous.png" />
+    <None Remove="Resources\Images\right-arrow_556690.png" />
+    <None Remove="Resources\Images\speedHight.png" />
+    <None Remove="Resources\Images\Stop3.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Converter\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.77" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Close2.png" />
+    <Resource Include="Resources\Images\Maximize2.png" />
+    <Resource Include="Resources\Images\Minus.png" />
+    <Resource Include="Resources\Images\Next.png" />
+    <Resource Include="Resources\Images\Pause.png" />
+    <Resource Include="Resources\Images\play_8637931.png" />
+    <Resource Include="Resources\Images\Previous.png" />
+    <Resource Include="Resources\Images\Stop3.png" />
   </ItemGroup>
 
 </Project>

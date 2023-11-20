@@ -20,9 +20,9 @@ namespace WPFPlayer
     {
         public MainWindow()
         {
-            InitializeComponent();
             var vm = new MainWindowViewModel(this);
             DataContext = vm;
+            InitializeComponent();
         }
     }
 }
